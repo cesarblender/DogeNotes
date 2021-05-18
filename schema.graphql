@@ -1,0 +1,53 @@
+type User {
+  _id: String
+  name: String
+  email: String
+}
+
+type UserInfo {
+  token: String
+  user: User
+  error: String
+}
+
+type Task {
+  _id: String
+  title: String
+  description: String
+  createdAt: String
+  done: Boolean
+  error: String
+}
+
+type Done {
+  done: Boolean!
+}
+
+type Query {
+  getTasks(token: String!): [Task!]!
+  getTask(_id: String!, token: String!): Task!
+}
+
+type Mutation {
+  register(name: String!, email: String!, password: String!): UserInfo!
+
+  login(email: String!, password: String!): UserInfo!
+
+  createTask(
+    title: String!
+    description: String!
+    time: String!
+    token: String!
+  ): Task!
+
+  editTask(
+    _id: String!
+    token: String!
+    title: String!
+    description: String!
+    createdAt: String!
+    done: Boolean!
+  ): Done!
+
+  deleteTask(_id: String!, token: String!): Done!
+}

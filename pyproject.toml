@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "dogenotes"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Flask = "^2.0.0"
+ariadne = "^0.13.0"
+Flask-PyMongo = "^2.3.0"
+pymongo = "^3.11.4"
+dnspython = "^2.1.0"
+PyJWT = "^2.1.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
