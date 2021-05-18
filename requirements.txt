@@ -1,0 +1,7 @@
+flask
+pymongo
+flask-pymongo
+six
+ariadne
+pyjwt
+dnspython
