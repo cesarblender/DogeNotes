@@ -1,16 +1,14 @@
 from jwt import encode
 from os import environ
 from werkzeug.security import generate_password_hash
-from libs.registerAuth import validatePassword, checkEmail
+from libs.registerAuth import validatePassword
 from bson.json_util import dumps
 from ast import literal_eval
 
 def register(name, email, password, mongo):
   passwordValidation = validatePassword(password)
-  emailChecking = checkEmail(email)
 
   if passwordValidation != True: return passwordValidation
-  if emailChecking != True: return emailChecking
   if len(name) < 2: return { "error": "The name is too short." }
 
   hashedPassword = generate_password_hash(password)

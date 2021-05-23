@@ -14,6 +14,7 @@ def setMutations(mongo):
 
   @mutation.field('login')
   def loginResolver(_, __, email, password):
+    print('OKSA')
     return login(email, password, mongo)
   
   @mutation.field('createTask')

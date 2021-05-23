@@ -6,6 +6,7 @@ from resolvers.mutations import setMutations
 from resolvers.queries import setQueries
 from routes import loadRoutes
 from database_controllers.loader import loadDatabase
+import flask_cors as cors
 
 uri = environ['DB_URI']
 
@@ -13,6 +14,11 @@ type_defs = load_schema_from_path('schema.graphql')
 
 app = Flask(__name__)
 app.config["MONGO_URI"] = uri
+
+cors.CORS(app)
+
+app.config['CORS_ORIGINS'] = ['*']
+
 mongo = loadDatabase(app)
 query = setQueries(mongo)
 mutation = setMutations(mongo)

@@ -9,7 +9,7 @@ def loadRoutes(app, schema):
 
   @app.route('/')
   def home():
-      return redirect('/graphql', 200)
+      return redirect('/graphql', 302)
 
 
   @app.route("/graphql", methods=["GET"])
